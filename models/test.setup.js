@@ -5,7 +5,7 @@ const winston = require('winston')
 
 // postgres
 const user = process.env.PG_USER || process.env.USER || 'root'
-const pw = process.env.PG_PASSWORD || ''
+const pw = process.env.PG_PASSWORD || 'document'
 const db = process.env.PG_DATABASE || 'risingstack_bootcamp'
 process.env.PG_URI = `postgres://${user}:${pw}@localhost:5432/${db}`
 
