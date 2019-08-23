@@ -30,7 +30,7 @@
   - Leverage [`lodash`](https://lodash.com/docs) and [`lodash/fp`](https://github.com/lodash/lodash/wiki/FP-Guide) functions
   - Avoid callbacks, use [`util.promisify`](https://nodejs.org/api/util.html#util_util_promisify_original) to convert them
   - Read the [You don't know JS](https://github.com/getify/You-Dont-Know-JS) books
-  - Use the [latest and greatest ES features](http://node.green/)
+  - Use the [latest and greates ES features](http://node.green/)
   - Follow the [clean coding](https://blog.risingstack.com/javascript-clean-coding-best-practices-node-js-at-scale/) guidelines
   - Enjoy! :)
 
@@ -59,7 +59,7 @@
   ```
 
   You should also install a visual tool for PostgreSQL, pick one:
-  - [pgweb](https://github.com/sosedoff/pgweb) (`$ brew cask install pgweb`)
+  - [pgweb](https://github.com/sosedoff/pgweb) (`$ brew install pgweb`)
   - [postico](https://eggerapps.at/postico/)
 
 ### Install Redis on your system
@@ -269,7 +269,7 @@
 
   Readings:
   - [12 factor - Processes](https://12factor.net/processes)
-  - [12 factor - Concurrency](https://12factor.net/concurrency)
+  - [12 factor - Concurrency](https://12factor.net/processes)
   - [Redis pub/sub](https://redis.io/topics/pubsub)
   - [`ioredis`](https://github.com/luin/ioredis)
 
@@ -313,10 +313,11 @@
   In this step you will add some features, which are required to have your application running in production environment.
 
   Tasks:
+  - [ ] Add a `destroy` function to the redis model, which calls `disconnect` on both redis clients and returns a `Promise`
   - [ ] Listen on the `SIGTERM` signal in `web/index.js`.
     - Create a function called `gracefulShutdown`
     - Use koa's `.callback()` function to create a `http` server (look for `http.createServer`) and convert `server.close` with `util.promisify`
-    - Close the server and destroy the database and redis connections (use the `destroy` function to the redis model, which calls `disconnect` on both redis clients and returns a `Promise`)
+    - Close the server and destroy the database and redis connections
     - Log out and exit the process with code `1` if something fails
     - Exit the process with code `0` if everything is closed succesfully
   - [ ] Implement the same for the worker process
